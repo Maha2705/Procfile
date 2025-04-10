@@ -47,7 +47,7 @@ if navigation() == "home":
         """,
         unsafe_allow_html=True
         )
-    add_bg_from_local('1.Jpg')
+    add_bg_from_local('1.jpg')
 
     st.markdown(f'<h1 style="color:#d35400 ;text-align: center;font-size:34px;font-family:verdana;">{"Green Options for milk packaging using intelligent packaging"}</h1>', unsafe_allow_html=True)
     st.write("-------------------------------------------")
