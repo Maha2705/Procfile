@@ -3,6 +3,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="/static/styles/styles.css">
 </head>
+
 <body>
   <ul>
     <li>
@@ -12,14 +13,16 @@
         </div>
       </a>
     </li>
+    <li><a href="#" onclick="setURL('/?p=home')">HOME</a></li>
     <li><a href="#" onclick="setURL('/?p=reg')">REGISTER</a></li>
     <li><a href="#" onclick="setURL('/?p=log')">LOGIN</a></li>
   </ul>
 
-  <iframe src="https://procfile-ufn227ufhh9jbhpby6wr9f.streamlit.app/?p=home"
-          id="streamlit_content"
-          allowfullscreen frameborder="0"
-          width="100%" height="800px">
+  <iframe
+    src="https://procfile-ufn227ufhh9jbhpby6wr9f.streamlit.app/?p=home"
+    id="streamlit_content"
+    allowfullscreen frameborder="0"
+    width="100%" height="800px">
     Your browser doesn't support iframes
   </iframe>
 </body>
@@ -27,9 +30,9 @@
 <script>
   const BASE_URL = "https://procfile-ufn227ufhh9jbhpby6wr9f.streamlit.app";
   function setURL(path) {
-    const fullUrl = `${BASE_URL}${path}`;
-    console.log("Setting iframe URL to:", fullUrl); // ✅ Debug
-    document.getElementById('streamlit_content').src = fullUrl;
+    const cleanURL = `${BASE_URL}${path}`;
+    console.log("Navigating to:", cleanURL);
+    document.getElementById('streamlit_content').src = cleanURL;
   }
 </script>
 </html>
