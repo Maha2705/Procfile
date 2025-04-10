@@ -391,8 +391,9 @@ if navigation() == "log":
                     if is_valid:
                         st.success(f"Welcome back, {user_name}! Login successful!")
                         
-                        import subprocess
-                        subprocess.run(['python','-m','streamlit','run','Prediction.py'])
+                        with open("Prediction.py") as f:
+                        exec(f.read())
+
                         
                         
                         
