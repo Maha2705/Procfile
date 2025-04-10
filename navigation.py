@@ -24,12 +24,10 @@ import sqlite3
 
 
 def navigation():
-    try:
-        path = st.query_params.get('p', [None])[0]
-    except Exception as e:
-        st.error('Please use the main app.')
-        return None
+    # Default to 'home' if no query param is provided
+    path = st.query_params.get('p', ['home'])[0]
     return path
+
 
 
 
