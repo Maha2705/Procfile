@@ -15,7 +15,7 @@ import re
 
 warnings.filterwarnings("ignore")
 
-# =================== NAVIGATION BAR ===================
+# =================== TOP NAVBAR ===================
 st.markdown(
     """
     <style>
@@ -46,7 +46,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ================ BACKGROUND IMAGE FUNCTION ================
+# =================== BACKGROUND IMAGE FUNCTION ===================
 def add_bg_from_local(image_file):
     if os.path.exists(image_file):
         with open(image_file, "rb") as file:
@@ -63,11 +63,14 @@ def add_bg_from_local(image_file):
             unsafe_allow_html=True
         )
 
-# ================ PAGE ROUTING ================
+# =================== PAGE ROUTING ===================
 def navigation():
     return st.query_params.get('p', ['home'])[0]
 
 page = navigation()
+
+# ✅ Debug line (you can remove this later)
+st.write(f"📌 You are on page: `{page}`")
 
 # =================== HOME PAGE ===================
 if page == "home":
@@ -90,12 +93,7 @@ elif page == "reg":
     st.markdown("<h1 style='text-align:center; color:#d35400;'>Register Here</h1>", unsafe_allow_html=True)
 
     def create_connection(db_file="dbs.db"):
-        conn = None
-        try:
-            conn = sqlite3.connect(db_file)
-        except sqlite3.Error as e:
-            print(e)
-        return conn
+        return sqlite3.connect(db_file)
 
     def create_user(conn, user):
         sql = ''' INSERT INTO users(name, password, email, phone) VALUES(?,?,?,?) '''
@@ -160,7 +158,6 @@ elif page == "log":
                     email TEXT NOT NULL UNIQUE,
                     phone TEXT NOT NULL);''')
 
-    st.write("Enter your credentials:")
     name = st.text_input("Username")
     password = st.text_input("Password", type="password")
 
@@ -179,6 +176,6 @@ elif page == "log":
             st.error("Invalid username or password.")
     conn.close()
 
-# =================== INVALID PAGE ===================
+# =================== PAGE NOT FOUND ===================
 else:
-    st.error("❌ Page not found.")
+    st.warning("⚠️ Oops! This page doesn't exist. Please use the menu above to navigate.")
