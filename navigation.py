@@ -392,7 +392,7 @@ if navigation() == "log":
                         st.success(f"Welcome back, {user_name}! Login successful!")
                         
                         with open("Prediction.py") as f:
-                        exec(f.read())
+                             exec(f.read())
 
                         
                         
