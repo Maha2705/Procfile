@@ -22,6 +22,7 @@ st.markdown(
     .nav-links {
         text-align: right;
         padding: 10px;
+        margin-top: 10px;
     }
     .nav-links a {
         text-decoration: none;
@@ -45,6 +46,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 # =================== BACKGROUND IMAGE FUNCTION ===================
 def add_bg_from_local(image_file):
